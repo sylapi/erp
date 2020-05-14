@@ -2,9 +2,9 @@
 
 namespace Sylapi\Erp\Message;
 
-class getItem extends AbstractRequest
+class getItems extends AbstractRequest
 {
-    private $fields = ['id', 'type', 'warehouse', 'stock', 'avaliable', 'number', 'name', 'ean', 'sku', 'status'];
+    private $fields = ['id', 'type', 'warehouse', 'stock', 'avaliable', 'number', 'name', 'ean', 'sku'];
 
     public function sendData() {
 
@@ -21,10 +21,12 @@ class getItem extends AbstractRequest
                 $response = $adapter->getResponse();
 
                 if (!empty($response) && is_array($response)) {
-                    foreach ($response as $key => $value) {
+                    foreach ($response as $id => $values) {
 
-                        if (in_array($key, $this->fields)) {
-                            $result[$key] = $value;
+                        foreach ($values as $key => $value) {
+                            if (in_array($key, $this->fields)) {
+                                $result[$id][$key] = $value;
+                            }
                         }
                     }
                 }

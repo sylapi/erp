@@ -14,6 +14,10 @@ class Erp extends AbstractErp
         return $this->createRequest('\Sylapi\Erp\Message\GetItem', $parameters);
     }
 
+    public function getItems(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\GetItems', $parameters);
+    }
+
     public function updateItem(array $parameters = array()) {
         return $this->createRequest('\Sylapi\Erp\Message\UpdateItem', $parameters);
     }
