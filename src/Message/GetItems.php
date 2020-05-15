@@ -14,7 +14,7 @@ class getItems extends AbstractRequest
 
         if (!empty($adapter)) {
 
-            $adapter->getItem();
+            $adapter->getItems();
 
             if ($adapter->isSuccess()) {
 

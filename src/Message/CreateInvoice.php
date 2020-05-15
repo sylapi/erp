@@ -4,7 +4,7 @@ namespace Sylapi\Erp\Message;
 
 use Sylapi\Erp\Common\Helper;
 
-class createDocument extends AbstractRequest
+class createInvoice extends AbstractRequest
 {
     private $fields = ['id', 'type', 'customer_id', 'name'];
 
@@ -19,7 +19,7 @@ class createDocument extends AbstractRequest
 
         if (!empty($adapter)) {
 
-            $adapter->createDocument();
+            $adapter->createInvoice();
 
             if ($adapter->isSuccess()) {
 

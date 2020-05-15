@@ -18,28 +18,32 @@ class Erp extends AbstractErp
         return $this->createRequest('\Sylapi\Erp\Message\GetItems', $parameters);
     }
 
-    public function updateItem(array $parameters = array()) {
-        return $this->createRequest('\Sylapi\Erp\Message\UpdateItem', $parameters);
-    }
-
     public function getStock(array $parameters = array()) {
         return $this->createRequest('\Sylapi\Erp\Message\GetStock', $parameters);
     }
 
 
-    public function getDocument(array $parameters = array()) {
-        return $this->createRequest('\Sylapi\Erp\Message\GetDocument', $parameters);
+    public function createOrder(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreateOrder', $parameters);
     }
 
-    public function createDocument(array $parameters = array()) {
-        return $this->createRequest('\Sylapi\Erp\Message\CreateDocument', $parameters);
+    public function createInvoice(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreateInvoice', $parameters);
     }
 
-    public function updateDocument(array $parameters = array()) {
-        return $this->createRequest('\Sylapi\Erp\Message\UpdateDocument', $parameters);
+    public function createAdvance(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreateAdvance', $parameters);
     }
 
-    public function removeDocument(array $parameters = array()) {
-        return $this->createRequest('\Sylapi\Erp\Message\RemoveDocument', $parameters);
+    public function createPayment(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreatePayment', $parameters);
+    }
+
+    public function createRW(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreateRW', $parameters);
+    }
+
+    public function createPW(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreatePW', $parameters);
     }
 }
