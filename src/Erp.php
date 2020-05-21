@@ -22,9 +22,12 @@ class Erp extends AbstractErp
         return $this->createRequest('\Sylapi\Erp\Message\GetStock', $parameters);
     }
 
-
     public function createOrder(array $parameters = array()) {
         return $this->createRequest('\Sylapi\Erp\Message\CreateOrder', $parameters);
+    }
+
+    public function deleteOrder(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\DeleteOrder', $parameters);
     }
 
     public function createInvoice(array $parameters = array()) {
@@ -39,11 +42,15 @@ class Erp extends AbstractErp
         return $this->createRequest('\Sylapi\Erp\Message\CreatePayment', $parameters);
     }
 
-    public function createRW(array $parameters = array()) {
-        return $this->createRequest('\Sylapi\Erp\Message\CreateRW', $parameters);
+    public function createRw(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreateRw', $parameters);
     }
 
-    public function createPW(array $parameters = array()) {
-        return $this->createRequest('\Sylapi\Erp\Message\CreatePW', $parameters);
+    public function createPw(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreatePw', $parameters);
+    }
+
+    public function createRwpw(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreateRwpw', $parameters);
     }
 }
