@@ -60,7 +60,7 @@ abstract class AbstractRequest
         if ($this->adapter == null) {
 
             $erp_name = ucfirst(strtolower($this->erpName));
-echo $erp_name;
+
             $class_name = "\\Sylapi\\Erp\\" . $erp_name . "\\" . $erp_name;
 
             if (class_exists($class_name)) {
@@ -72,7 +72,7 @@ echo $erp_name;
                     $this->adapter->sandbox(true);
                 }
             } else {
-                $this->setError('Erp don\'t exist');
+                $this->setError('Erp '.$erp_name.' don\'t exist');
             }
         }
 

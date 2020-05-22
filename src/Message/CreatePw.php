@@ -2,7 +2,7 @@
 
 namespace Sylapi\Erp\Message;
 
-class createPW extends AbstractRequest
+class createPw extends AbstractRequest
 {
     public function sendData() {
 

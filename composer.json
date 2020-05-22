@@ -14,10 +14,10 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=7.2.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.2"
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "psr-4": { "Sylapi\\Erp\\" : "src" }
