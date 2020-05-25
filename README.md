@@ -15,19 +15,19 @@ Courier to install, simply add it to your `composer.json` file:
 ```
 
 ## Pakiet operacji Erp API
-Pakiet standardowych metod do synchronizacji danych między systemami ERP i zewnętrznymi systemami 
-jak np sklepy interentowe lub systemy sprzedażowe. 
+Pakiet standardowych metod służących do synchronizacji danych między systemami ERP i zewnętrznymi systemami 
+jak sklepy interentowe czy systemy sprzedażowe. 
 
 Autoryzacja do systemu ERP. Metoda sandbox jest opcjonalna gdy jest potreba połczyć się do wersji testowej.
 ```php
-$courier = new Erp('Petra');
+$courier = new Erp('Nazwa Systemu ERP');
 $courier->sandbox(true);
 
 $courier->setLogin('123456');
 $courier->setPassword('abc12345def');
 ```
 
-Przy niektórych systemach jest wymagane podanie więcej parametrów przy autoryzacji.Wówczas należy przekazać je w osobnej metodzie
+Przy niektórych systemach jest wymagane podanie więcej parametrów przy autoryzacji. Wówczas należy przekazać je w osobnej metodzie auth
 ```php
 $courier->auth([
     '_key' => '1234abcd5678',
@@ -41,7 +41,7 @@ $courier->auth([
 - getStock()
  
 #### Operacja getItems()
-Pobranie listy artykułów z minimalnymi danymi: id', type, warehouse, stock, avaliable, number, name, ean, sku 
+Pobranie listy artykułów z minimalnymi danymi: id, type, warehouse, stock, avaliable, number, name, ean, sku 
 ```php
 $items = $erp->getItems();
 if ($items->isSuccess()) {
@@ -80,7 +80,7 @@ Tworzenie zamówień, rezerwacji towarów
 $params = [
     'document_def' => 123,
     'external_id' => 12345,
-    'comment' => 'Zamówoienie #12345',
+    'comment' => 'Zamówienie #12345',
     'currency' => 'PLN',
     'buyer' => [
         'name' => 'Jan Kowalski',
@@ -129,7 +129,7 @@ $params = array(
     'amount' => 100.99,
     'sell_date' => '2020-01-01',
     'date' => '2020-01-01',
-    'comment' => 'Zamowienie nr 123',
+    'comment' => 'Zamówienie nr 123',
     'country' => 'PL',
 );
 $advance = $erp->createAdvance($params);
@@ -173,11 +173,9 @@ $params = [
             'quantity' => 2,
         ],
     ],
-    'comment' => 'Infomacja dodatkowa'
+    'comment' => 'Informacja dodatkowa'
 ];
-
 $document = $erp->createRw($params);
-$document = $erp->createPw($params); 
 ```
 
 #### Operacja createPw()
