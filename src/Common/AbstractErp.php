@@ -67,6 +67,13 @@ abstract class AbstractErp {
     }
 
     /**
+     * @return String
+     */
+    public function getErpName() {
+        return $this->erp;
+    }
+
+    /**
      * @return mixed
      */
     public function getParameter(array $keys = array()) {

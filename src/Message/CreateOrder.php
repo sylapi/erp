@@ -46,16 +46,11 @@ class createOrder extends AbstractRequest
 
     private function validateAddresses() {
 
-        $check_documents = ['order', 'invoice_vat'];
+        $buyer = (isset($this->parameters['document_data']['buyer'])) ? $this->parameters['document_data']['buyer'] : [];
+        $this->parameters['document_data']['buyer'] = Helper::validateAddress($buyer);
 
-        if (in_array($this->parameters['document_type'], $check_documents)) {
-
-            $buyer = (isset($this->parameters['document_data']['buyer'])) ? $this->parameters['document_data']['buyer'] : [];
-            $this->parameters['document_data']['buyer'] = Helper::validateAddress($buyer);
-
-            $sellers = (isset($this->parameters['document_data']['seller'])) ? $this->parameters['document_data']['seller'] : [];
-            $this->parameters['document_data']['seller'] = Helper::validateAddress($sellers);
-        }
+        $sellers = (isset($this->parameters['document_data']['seller'])) ? $this->parameters['document_data']['seller'] : [];
+        $this->parameters['document_data']['seller'] = Helper::validateAddress($sellers);
     }
 
     private function validateItems() {
