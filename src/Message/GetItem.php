@@ -2,10 +2,20 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class getItem
+ * @package Sylapi\Erp\Message
+ */
 class getItem extends AbstractRequest
 {
+    /**
+     * @var array
+     */
     private $fields = ['id', 'type', 'warehouse', 'stock', 'avaliable', 'number', 'name', 'ean', 'sku', 'status'];
 
+    /**
+     * Request to createRwpw method
+     */
     public function sendData() {
 
         $result = null;

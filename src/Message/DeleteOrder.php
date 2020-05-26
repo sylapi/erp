@@ -2,8 +2,15 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class deleteOrder
+ * @package Sylapi\Erp\Message
+ */
 class deleteOrder extends AbstractRequest
 {
+    /**
+     * Request to deleteOrder method
+     */
     public function sendData() {
 
         $adapter = $this->adapter();

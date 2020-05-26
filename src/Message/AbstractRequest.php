@@ -2,48 +2,102 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class AbstractRequest
+ * @package Sylapi\Erp\Message
+ */
 abstract class AbstractRequest
 {
+    /**
+     * @var
+     */
     protected $responde;
+    /**
+     * @var
+     */
     protected $parameters;
+    /**
+     * @var
+     */
     protected $erpName;
+    /**
+     * @var null
+     */
     protected $adapter = null;
 
+    /**
+     * @param String $name
+     * @return String
+     */
     public function setErpName(String $name) {
         return $this->erpName =  $name;
     }
 
+    /**
+     * @param array $parameters
+     * @return array
+     */
     public function initialize(array $parameters = array())  {
         return $this->parameters = $parameters;
     }
 
+    /**
+     * @return mixed
+     */
     public function getResponse() {
         return $this->responde['response'];
     }
+
+    /**
+     * @param $value
+     * @return mixed
+     */
     protected function setResponse($value) {
         return $this->responde['response'] = $value;
     }
 
+    /**
+     * @return |null
+     */
     public function getError() {
         return (!empty($this->responde['error'])) ? $this->responde['error'] : null;
     }
+
+    /**
+     * @param $value
+     * @return mixed
+     */
     protected function setError($value) {
         if (!empty($value)) {
             return $this->responde['error'] = $value;
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function getCode() {
         return $this->responde['code'];
     }
+
+    /**
+     * @param $value
+     * @return mixed
+     */
     protected function setCode($value) {
         return $this->responde['code'] = $value;
     }
 
+    /**
+     * @return bool
+     */
     public function isSuccess() {
         return (empty($this->responde['error'])) ? true : false;
     }
 
+    /**
+     * @return array
+     */
     public function debug() {
 
         return [
@@ -55,6 +109,9 @@ abstract class AbstractRequest
         ];
     }
 
+    /**
+     * @return null
+     */
     protected function adapter() {
 
         if ($this->adapter == null) {

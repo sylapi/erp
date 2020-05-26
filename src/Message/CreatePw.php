@@ -2,8 +2,15 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class createPw
+ * @package Sylapi\Erp\Message
+ */
 class createPw extends AbstractRequest
 {
+    /**
+     * Request to createPw method
+     */
     public function sendData() {
 
         $result = null;
@@ -12,7 +19,7 @@ class createPw extends AbstractRequest
 
         if (!empty($adapter)) {
 
-            $adapter->createPW();
+            $adapter->createPw();
 
             if ($adapter->isSuccess()) {
 

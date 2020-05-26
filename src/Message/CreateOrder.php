@@ -4,10 +4,20 @@ namespace Sylapi\Erp\Message;
 
 use Sylapi\Erp\Common\Helper;
 
+/**
+ * Class createOrder
+ * @package Sylapi\Erp\Message
+ */
 class createOrder extends AbstractRequest
 {
+    /**
+     * @var array
+     */
     private $fields = ['id', 'type', 'customer_id', 'name'];
 
+    /**
+     * Request to createOrder method
+     */
     public function sendData() {
 
         $result = null;
@@ -44,6 +54,9 @@ class createOrder extends AbstractRequest
     }
 
 
+    /**
+     * Validation address data
+     */
     private function validateAddresses() {
 
         $buyer = (isset($this->parameters['document_data']['buyer'])) ? $this->parameters['document_data']['buyer'] : [];
@@ -53,6 +66,9 @@ class createOrder extends AbstractRequest
         $this->parameters['document_data']['seller'] = Helper::validateAddress($sellers);
     }
 
+    /**
+     * Validation items data
+     */
     private function validateItems() {
 
         if (isset($this->parameters['document_data']['items'])) {

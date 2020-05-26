@@ -2,8 +2,15 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class createAdvance
+ * @package Sylapi\Erp\Message
+ */
 class createAdvance extends AbstractRequest
 {
+    /**
+     * Request to createAdvance method
+     */
     public function sendData() {
 
         $adapter = $this->adapter();

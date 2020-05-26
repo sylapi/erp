@@ -2,8 +2,15 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class createPayment
+ * @package Sylapi\Erp\Message
+ */
 class createPayment extends AbstractRequest
 {
+    /**
+     * Request to createPayment method
+     */
     public function sendData() {
 
         $adapter = $this->adapter();

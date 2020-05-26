@@ -4,10 +4,20 @@ namespace Sylapi\Erp\Message;
 
 use Sylapi\Erp\Common\Helper;
 
+/**
+ * Class createInvoice
+ * @package Sylapi\Erp\Message
+ */
 class createInvoice extends AbstractRequest
 {
+    /**
+     * @var array
+     */
     private $fields = ['id', 'type', 'customer_id', 'name'];
 
+    /**
+     * Request to createInvoice method
+     */
     public function sendData() {
 
         $result = null;
@@ -44,6 +54,9 @@ class createInvoice extends AbstractRequest
     }
 
 
+    /**
+     * Validation address data
+     */
     private function validateAddresses() {
 
         $check_documents = ['order', 'invoice_vat'];
@@ -58,6 +71,9 @@ class createInvoice extends AbstractRequest
         }
     }
 
+    /**
+     * Validation items data
+     */
     private function validateItems() {
 
         if (isset($this->parameters['document_data']['items'])) {

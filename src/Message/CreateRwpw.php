@@ -2,8 +2,15 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class createRwpw
+ * @package Sylapi\Erp\Message
+ */
 class createRwpw extends AbstractRequest
 {
+    /**
+     * Request to createRwpw method
+     */
     public function sendData() {
 
         $adapter = $this->adapter();

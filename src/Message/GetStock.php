@@ -2,10 +2,20 @@
 
 namespace Sylapi\Erp\Message;
 
+/**
+ * Class getStock
+ * @package Sylapi\Erp\Message
+ */
 class getStock extends AbstractRequest
 {
+    /**
+     * @var array
+     */
     private $fields = ['id', 'type', 'warehouse', 'stock', 'avaliable', 'number', 'name'];
 
+    /**
+     * Request to getStock method
+     */
     public function sendData() {
 
         $result = null;

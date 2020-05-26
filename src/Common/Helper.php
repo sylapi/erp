@@ -2,8 +2,15 @@
 
 namespace Sylapi\Erp\Common;
 
+/**
+ * Class Helper
+ * @package Sylapi\Erp\Common
+ */
 class Helper
 {
+    /**
+     * @return bool|string
+     */
     static function guid() {
 
         mt_srand((double)microtime()*10000);
@@ -12,12 +19,20 @@ class Helper
         return $retval;
     }
 
+    /**
+     * @param $data
+     * @return mixed
+     */
     static function toArray($data) {
 
         $json = json_encode($data);
         return json_decode($json, true);
     }
 
+    /**
+     * @param $xml
+     * @return mixed
+     */
     static function xmlToArray($xml) {
 
         $xml_debug = simplexml_load_string($xml, null, LIBXML_NOCDATA);
@@ -27,12 +42,20 @@ class Helper
         return $array;
     }
 
+    /**
+     * @param $number
+     * @return mixed
+     */
     static function toNumber($number) {
 
         return str_replace(array(',', ' '), array('.', ''), $number);
     }
 
 
+    /**
+     * @param $address
+     * @return mixed
+     */
     static function validateAddress($address) {
 
         $fields = ['name', 'nip', 'street', 'postcode', 'city', 'country', 'phone', 'email'];
@@ -46,6 +69,10 @@ class Helper
         return $address;
     }
 
+    /**
+     * @param $item
+     * @return mixed
+     */
     static function validateItem($item) {
 
         $fields = ['id', 'warehouse_id', 'ean', 'serial_number', 'model', 'tax', 'name', 'quantity', 'price_gross'];
