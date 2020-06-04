@@ -70,6 +70,14 @@ class Erp extends AbstractErp
      * @param array $parameters
      * @return mixed
      */
+    public function createInvoiceToOrder(array $parameters = array()) {
+        return $this->createRequest('\Sylapi\Erp\Message\CreateInvoiceToOrder', $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     * @return mixed
+     */
     public function createAdvance(array $parameters = array()) {
         return $this->createRequest('\Sylapi\Erp\Message\CreateAdvance', $parameters);
     }
