@@ -13,7 +13,7 @@ class createInvoiceToOrder extends AbstractRequest
     /**
      * @var array
      */
-    private $fields = ['id', 'name'];
+    private $fields = ['id', 'order_id', 'name'];
 
     /**
      * Request to createInvoice method
