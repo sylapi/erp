@@ -5,8 +5,7 @@ namespace Sylapi\Erp\Message;
 use Sylapi\Erp\Common\Helper;
 
 /**
- * Class createOrder
- * @package Sylapi\Erp\Message
+ * Class createOrder.
  */
 class CreateOrder extends AbstractRequest
 {
@@ -16,10 +15,10 @@ class CreateOrder extends AbstractRequest
     private $fields = ['id', 'type', 'customer_id', 'name'];
 
     /**
-     * Request to createOrder method
+     * Request to createOrder method.
      */
-    public function sendData() {
-
+    public function sendData()
+    {
         $result = null;
 
         $this->validateAddresses();
@@ -28,18 +27,14 @@ class CreateOrder extends AbstractRequest
         $adapter = $this->adapter();
 
         if (!empty($adapter)) {
-
             $adapter->createOrder();
 
             if ($adapter->isSuccess()) {
-
                 $response = $adapter->getResponse();
 
                 if (!empty($response) && is_array($response)) {
                     foreach ($response as $key => $value) {
-
                         if (in_array($key, $this->fields)) {
-
                             $result[$key] = $value;
                         }
                     }
@@ -53,12 +48,11 @@ class CreateOrder extends AbstractRequest
         }
     }
 
-
     /**
-     * Validation address data
+     * Validation address data.
      */
-    private function validateAddresses() {
-
+    private function validateAddresses()
+    {
         $buyer = (isset($this->parameters['document_data']['buyer'])) ? $this->parameters['document_data']['buyer'] : [];
         $this->parameters['document_data']['buyer'] = Helper::validateAddress($buyer);
 
@@ -67,12 +61,11 @@ class CreateOrder extends AbstractRequest
     }
 
     /**
-     * Validation items data
+     * Validation items data.
      */
-    private function validateItems() {
-
+    private function validateItems()
+    {
         if (isset($this->parameters['document_data']['items'])) {
-
             foreach ($this->parameters['document_data']['items'] as $item) {
                 $this->parameters['document_data']['buyer'] = Helper::validateItem($item);
             }

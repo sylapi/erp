@@ -11,7 +11,6 @@ class ErpTest extends PHPUnitTestCase
         parent::__construct($name, $data, $dataName);
     }
 
-
     public function testInitializeSuccess()
     {
         $erp_name = 'Name_'.time();

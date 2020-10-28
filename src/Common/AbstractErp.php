@@ -3,10 +3,10 @@
 namespace Sylapi\Erp\Common;
 
 /**
- * Class AbstractErp
- * @package Sylapi\Erp\Common
+ * Class AbstractErp.
  */
-abstract class AbstractErp {
+abstract class AbstractErp
+{
     /**
      * @var
      */
@@ -27,65 +27,73 @@ abstract class AbstractErp {
     /**
      * @param bool $sandobx
      */
-    public function sandbox(bool $sandobx) {
+    public function sandbox(bool $sandobx)
+    {
         $this->params['sandbox'] = $sandobx;
     }
 
     /**
-     * @param String $login
+     * @param string $login
      */
-    public function setLogin(String $login) {
+    public function setLogin(string $login)
+    {
         $this->params['accessData']['login'] = $login;
     }
 
     /**
-     * @param String $password
+     * @param string $password
      */
-    public function setPassword(String $password) {
+    public function setPassword(string $password)
+    {
         $this->params['accessData']['password'] = $password;
     }
 
     /**
-     * @param String $key
+     * @param string $key
      */
-    public function setKey(String $key) {
+    public function setKey(string $key)
+    {
         $this->params['accessData']['key'] = $key;
     }
 
     /**
-     * @param String $token
+     * @param string $token
      */
-    public function setToken(String $token) {
+    public function setToken(string $token)
+    {
         $this->params['accessData']['token'] = $token;
     }
 
     /**
      * @param array $auth
      */
-    public function setAuth(array $auth=[]) {
+    public function setAuth(array $auth = [])
+    {
         $this->params['accessData']['auth'] = $auth;
     }
 
     /**
-     * @return String
+     * @return string
      */
-    public function getErpName() {
+    public function getErpName()
+    {
         return $this->erp;
     }
 
     /**
      * @return mixed
      */
-    public function getParameter(array $keys = array()) {
+    public function getParameter(array $keys = [])
+    {
         $value = $this->params;
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             if (isset($value[$key])) {
                 $value = $value[$key];
-            }
-            else {
+            } else {
                 return null;
             }
         }
+
         return $value;
     }
 
@@ -100,28 +108,31 @@ abstract class AbstractErp {
     /**
      * @return mixed
      */
-    public function getResponse() {
+    public function getResponse()
+    {
         return $this->response;
     }
 
     /**
      * @return mixed
      */
-    public function getError() {
+    public function getError()
+    {
         return $this->errors;
     }
 
     /**
      * @param array $data
      */
-    protected function setError(array $data = array()) {
+    protected function setError(array $data = [])
+    {
         $this->errors = $data;
     }
 
-    public function debug() {
-
+    public function debug()
+    {
         return [
-            'error' => $this->getError(),
+            'error'    => $this->getError(),
             'response' => $this->getResponse(),
         ];
     }
@@ -129,6 +140,7 @@ abstract class AbstractErp {
     /**
      * @param $class
      * @param array $parameters
+     *
      * @return mixed
      */
     protected function createRequest($class, array $parameters = [])
@@ -137,7 +149,6 @@ abstract class AbstractErp {
 
         if (!empty($this->params)) {
             foreach ($this->params as $key => $value) {
-
                 if (!empty($value)) {
                     $parameters[$key] = $value;
                 }
