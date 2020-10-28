@@ -1,5 +1,7 @@
 # Sylapi/Erp
 
+[![StyleCI](https://github.styleci.io/repos/263632999/shield?branch=master)](https://github.styleci.io/repos/263632999?branch=master)
+
 **Erp library**
 
 ## Installation
@@ -15,8 +17,8 @@ Courier to install, simply add it to your `composer.json` file:
 ```
 
 ## Pakiet operacji Erp API
-Pakiet standardowych metod służących do synchronizacji danych między systemami ERP i zewnętrznymi systemami 
-jak sklepy interentowe czy systemy sprzedażowe. 
+Pakiet standardowych metod służących do synchronizacji danych między systemami ERP i zewnętrznymi systemami
+jak sklepy interentowe czy systemy sprzedażowe.
 
 Autoryzacja do systemu ERP. Metoda sandbox jest opcjonalna gdy jest potreba połczyć się do wersji testowej.
 ```php
@@ -39,9 +41,9 @@ $courier->auth([
 - getItems()
 - getItem()
 - getStock()
- 
+
 #### Operacja getItems()
-Pobranie listy artykułów z minimalnymi danymi: id, type, warehouse, stock, avaliable, number, name, ean, sku 
+Pobranie listy artykułów z minimalnymi danymi: id, type, warehouse, stock, avaliable, number, name, ean, sku
 ```php
 $items = $erp->getItems();
 if ($items->isSuccess()) {
@@ -51,22 +53,22 @@ else {
      $items->getError();
 }
 ```
- 
+
 #### Operacja getItem()
-Pobranie podstawowych danych o pojedynczym artykule, zwracane dane: id, type, warehouse, stock, avaliable, number, name, ean, sku, status 
+Pobranie podstawowych danych o pojedynczym artykule, zwracane dane: id, type, warehouse, stock, avaliable, number, name, ean, sku, status
 ```php
 $params = [
     'id' => 123
 ];
 $item = $erp->getItem($params);
 ```
- 
+
 #### Operacja getStock()
-Pobranie stanów magazynowych i dyspozycyjnych, zwracane dane: id, type, warehouse, stock, avaliable, number, name 
+Pobranie stanów magazynowych i dyspozycyjnych, zwracane dane: id, type, warehouse, stock, avaliable, number, name
 ```php
 $stock = $erp->getStock();
 ```
- 
+
 ## Tworzenie dokumentów sprzedażowych
 - createOrder()
 - createInvoice()
@@ -153,7 +155,7 @@ Usuwanie zamówienia/rezerewacji towaru
 ```php
 $params = [
     'order_id' => 12345,
-]; 
+];
 $items = $erp->deleteOrder($params);
 ```
 
@@ -179,14 +181,14 @@ $document = $erp->createRw($params);
 ```
 
 #### Operacja createPw()
-Tworzenie dokumentu przychodu wewnętrznego, parametry 
+Tworzenie dokumentu przychodu wewnętrznego, parametry
 identyczne jak w przypadku tworzenia dokumentu RW
 ```php
-$document = $erp->createPw($params); 
+$document = $erp->createPw($params);
 ```
 
 #### Operacja createRwpw
-Niektóre systemy ERP pozwalaja jednocześnie utworzyć dokument RW i PW 
+Niektóre systemy ERP pozwalaja jednocześnie utworzyć dokument RW i PW
 w przypadku gdy mamy do czynienia z produkcja towarów
 ```php
 $params = [
