@@ -3,24 +3,21 @@
 namespace Sylapi\Erp\Message;
 
 /**
- * Class createRw
- * @package Sylapi\Erp\Message
+ * Class createRw.
  */
 class CreateRw extends AbstractRequest
 {
     /**
-     * Request to createRw method
+     * Request to createRw method.
      */
-    public function sendData() {
-
+    public function sendData()
+    {
         $adapter = $this->adapter();
 
         if (!empty($adapter)) {
-
             $adapter->createRw();
 
             if ($adapter->isSuccess()) {
-
                 $response = $adapter->getResponse();
 
                 $this->setResponse($response);
