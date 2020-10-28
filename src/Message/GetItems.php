@@ -6,7 +6,7 @@ namespace Sylapi\Erp\Message;
  * Class getItems
  * @package Sylapi\Erp\Message
  */
-class getItems extends AbstractRequest
+class GetItems extends AbstractRequest
 {
     /**
      * @var array

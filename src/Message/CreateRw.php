@@ -6,7 +6,7 @@ namespace Sylapi\Erp\Message;
  * Class createRw
  * @package Sylapi\Erp\Message
  */
-class createRw extends AbstractRequest
+class CreateRw extends AbstractRequest
 {
     /**
      * Request to createRw method

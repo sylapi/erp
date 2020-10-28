@@ -6,7 +6,7 @@ namespace Sylapi\Erp\Message;
  * Class createPayment
  * @package Sylapi\Erp\Message
  */
-class createPayment extends AbstractRequest
+class CreatePayment extends AbstractRequest
 {
     /**
      * Request to createPayment method

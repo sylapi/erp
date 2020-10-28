@@ -6,7 +6,7 @@ namespace Sylapi\Erp\Message;
  * Class createAdvance
  * @package Sylapi\Erp\Message
  */
-class createAdvance extends AbstractRequest
+class CreateAdvance extends AbstractRequest
 {
     /**
      * Request to createAdvance method

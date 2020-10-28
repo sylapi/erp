@@ -8,7 +8,7 @@ use Sylapi\Erp\Common\Helper;
  * Class createInvoiceToOrder
  * @package Sylapi\Erp\Message
  */
-class createInvoiceToOrder extends AbstractRequest
+class CreateInvoiceToOrder extends AbstractRequest
 {
     /**
      * @var array

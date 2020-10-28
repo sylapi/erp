@@ -6,7 +6,7 @@ namespace Sylapi\Erp\Message;
  * Class deleteOrder
  * @package Sylapi\Erp\Message
  */
-class deleteOrder extends AbstractRequest
+class DeleteOrder extends AbstractRequest
 {
     /**
      * Request to deleteOrder method
