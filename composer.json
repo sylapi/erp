@@ -1,12 +1,11 @@
 {
     "name": "sylapi/erp",
     "type": "library",
-    "description": "Erp Systems API",
+    "description": "Erp",
     "keywords": [
         "erp",
-        "system api"
     ],
-    "homepage": "https://bitbucket.org/sylapi/erp",
+    "homepage": "https://github.com/sylapi/erp",
     "license": "MIT",
     "authors": [
         {
@@ -22,5 +21,5 @@
     "autoload": {
         "psr-4": { "Sylapi\\Erp\\" : "src" }
     },
-    "prefer-stable": false
+    "prefer-stable": true
 }
